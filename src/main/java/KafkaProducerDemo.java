@@ -1,10 +1,11 @@
+import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
 
-public class KafkaProducer {
+public class KafkaProducerDemo {
 	public static void main(String[] args) {
 		Properties properties = new Properties();
 
@@ -20,7 +21,7 @@ public class KafkaProducer {
 
 
 		// launch kakfa producer
-		Producer<String, String> producer = new org.apache.kafka.clients.producer.KafkaProducer<String, String>(properties);
+		Producer<String, String> producer = new KafkaProducer<String, String>(properties);
 
 		for (int key = 0; key < 10; key++) {
 			ProducerRecord<String, String> producerRecord = new ProducerRecord<String, String>("second_topic",
